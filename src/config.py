@@ -1,0 +1,11 @@
+
+ETFS = {
+    "EUNL.DE" : 0.70,
+    "IS3N.DE" : 0.15,
+    "PPFB.DE" : 0.10,
+    "VVSM.DE" : 0.05
+    }
+
+CAPITAL_INICIAL = 10000
+APORTACION_MENSUAL = 250
+FECHA_INICIO = '2021-07-16'

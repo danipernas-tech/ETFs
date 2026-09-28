@@ -39,3 +39,30 @@ FASE 02
 
 2.6 Comprobación en src/consultas.py con SELECT ticker, COUNT(*)
 
+
+FASE 03
+
+3.1 Decisiones
+    - 10.000 € el 16/07/2021 repartidos 70/15/10/5 en los 4 fondos
+    - 250 €/mes el primer día de cotización de cada mes, con el mismo reparto
+
+3.2 src/config.py con ETFS, CAPITAL_INICIAL, APORTACION_MENSUAL y FECHA_INICIO: la cartera definida en un único sitio y se importa desde los scripts
+
+3.3 Consulta del primer día de cotización de cada mes: WHERE + GROUP BY ticker, strftime('%Y-%m', fecha) + MIN(fecha) + ORDER BY
+    - Con MIN(), SQLite devuelve el precio de esa misma fila 
+
+3.4 Placeholder ? en el SELECT, pasando (FECHA_INICIO,) (tupla de un elemento)
+
+3.5 src/simulacion.py: importe de cada compra = capital inicial o aportación mensual × peso
+
+Aprendido:
+    - fetchall() solo una vez: el cursor se agota
+    - SQL no da error si un filtro no encuentra nada, devuelve []
+
+FASES SIGUIENTES
+- Fase 4: proyección a 10, 20 y 30 años con escenarios (pesimista, base y optimista)
+- Fase 5: conclusiones con números
+- Fase 6: README
+
+
+

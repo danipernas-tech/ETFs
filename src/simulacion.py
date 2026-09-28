@@ -1,5 +1,6 @@
 import sqlite3
 from datetime import date
+import csv
 
 from config import ETFS, FECHA_INICIO, CAPITAL_INICIAL, APORTACION_MENSUAL
 
@@ -114,6 +115,11 @@ print("--- DURACIÓN INVERSION (HASTA ÚLTIMO DIA CIERRE) ---")
 print(f"Desde {fecha_inicio} hasta {fecha_final}")
 print(f"Duración: {dias} dias ({anios:.1f}años)")
 
-
+with open("data/flujos_tir.csv", "w", newline="", encoding="utf-8") as archivo:
+    escritor = csv.writer(archivo)
+    escritor.writerow(["fecha", "importe"])
+    for fecha, importe in compras:
+        escritor.writerow([fecha, -importe])
+    escritor.writerow([fecha_final, round(valor_total, 2)])
 
 conexion.close()

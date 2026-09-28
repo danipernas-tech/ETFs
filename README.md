@@ -67,7 +67,7 @@ Yahoo Finance ──► descargar_datos.py ──► datos_etfs.csv ──► ca
    - Con SQL saco el primer día de cotización de cada mes (`GROUP BY ticker, strftime('%Y-%m', fecha)` + `MIN(fecha)`): 252 compras (4 ETFs × 63 meses).
    - Calculo las participaciones de cada compra y las acumulo.
    - Valor final = participaciones × último cierre.
-   - TIR calculada **por bisección**, implementada a mano sin librerías.
+   - TIR calculada **por bisección** y validada con XIRR (Google Sheets)
 
 La configuración de la cartera (tickers, pesos, importes y fecha de inicio) está en un único sitio: `src/config.py`.
 
@@ -123,7 +123,7 @@ TASKS.md               # registro de fases, decisiones y aprendizajes
 ## Próximos pasos
 
 - [ ] Proyección a 10, 20 y 30 años con escenarios y ajuste por inflación
-- [ ] Validar la TIR con `XIRR`
+- [x] Validar la TIR con `XIRR`
 - [ ] Simulación Monte Carlo
 - [ ] Comparativa con y sin rebalanceo
 - [ ] Dashboard en Power BI

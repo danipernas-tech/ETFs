@@ -132,4 +132,4 @@ TASKS.md               # registro de fases, decisiones y aprendizajes
 
 > Este proyecto es de aprendizaje y no es una recomendación de inversión. Rentabilidades pasadas no garantizan rentabilidades futuras.
 
-**Autor:** Dani Pernas · [LinkedIn](www.linkedin.com/in/dani-pernas-b96255208)
+**Autor:** Dani Pernas · [LinkedIn](https://www.linkedin.com/in/dani-pernas-b96255208)

@@ -55,6 +55,18 @@ FASE 03
 
 3.5 src/simulacion.py: importe de cada compra = capital inicial o aportación mensual × peso
 
+3.6 El primer mes lleva 10.000€ + 250€ (Total aportado 25.750€)
+
+3.7 Valor final = participaciones * último precio (MAX(fecha)) * ticker
+
+3.8 Resultados del backtest (16/07/2021 - 25/09/2026):
+ 
+3.9 Desviación de pesos (sin rebalanceo):
+    - Aportado: 25.750 €
+    - Valor total: 45.363,40 €
+    - Ganancia: 19.613,40 € (+76,17% total)
+    - TIR anual: 15,88% (calculada por bisección)
+
 Aprendido:
     - fetchall() solo una vez: el cursor se agota
     - SQL no da error si un filtro no encuentra nada, devuelve []

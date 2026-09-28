@@ -70,6 +70,9 @@ with open("data/datos_etfs.csv", "w", newline="", encoding="utf-8") as archivo:
                 for fecha ,precio in cierres.items():
                         if hoy != fecha.date():
                             escritor.writerow([fecha.date(), ticker, round(precio, 3)])
+
+
+
                       
 
 

@@ -60,20 +60,41 @@ FASE 03
 3.7 Valor final = participaciones * último precio (MAX(fecha)) * ticker
 
 3.8 Resultados del backtest (16/07/2021 - 25/09/2026):
- 
-3.9 Desviación de pesos (sin rebalanceo):
     - Aportado: 25.750 €
     - Valor total: 45.363,40 €
     - Ganancia: 19.613,40 € (+76,17% total)
     - TIR anual: 15,88% (calculada por bisección)
+ 
+3.9 Desviación de pesos (sin rebalanceo):
+    - World 64,3% (objetivo 70%)
+    - Emergentes 13,0% (objetivo 15%)
+    - Oro 11,5% (objetivo 10%)
+    - Semis 11,2% (objetivo 5%) → han duplicado su peso, la cartera es más arriesgada de lo diseñado
 
 Aprendido:
-    - fetchall() solo una vez: el cursor se agota
+
+    Algoritmo:
+    - TIR calculada por bisección: acotar un rango y partirlo por la mitad hasta encontrar el interés que cuadra con el valor final, sin librerías
+
+    SQL
+    - Orden de las cláusulas: SELECT → FROM → WHERE → GROUP BY → ORDER BY, con un solo ; al final
+    - GROUP BY por varias columnas (ticker + mes) y strftime('%Y-%m', fecha) para agrupar por mes
+    - MIN()/MAX() con otra columna suelta devuelve el valor de esa misma fila (propio de SQLite, en PostgreSQL no funciona)
     - SQL no da error si un filtro no encuentra nada, devuelve []
+    - Placeholders ? también en SELECT; una tupla de un elemento lleva coma: (FECHA_INICIO,)
+
+    Python
+    - config.py como única fuente de datos de la cartera, importado desde los scripts (constantes en MAYÚSCULAS)
+    - Datos emparejados uno a uno → dict
+    - Fechas: date.fromisoformat() para convertir texto y restar fechas con .days
+    - fetchall() solo una vez: el cursor se agota
+    - Método sin paréntesis (fetchall) = referencia a la función y no la ejecuta
+
+
 
 FASES SIGUIENTES
 - Fase 4: proyección a 10, 20 y 30 años con escenarios (pesimista, base y optimista)
-- Fase 5: conclusiones con números
+- Fase 5: conclusiones con números + Power BI + método Monte Carlo
 - Fase 6: README
 
 
